@@ -16,8 +16,20 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $datalist = DB::select('select * from categories');
+
+        $datalist = DB::table('categories')->get();
         return view('admin.category',['datalist'=>$datalist]);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function add()
+    {
+        $datalist = DB::table('categories')->get();
+        return view('admin.category_add',['datalist'=>$datalist]);
     }
 
     /**
@@ -44,10 +56,10 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Category  $category
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show($id)
     {
         //
     }
