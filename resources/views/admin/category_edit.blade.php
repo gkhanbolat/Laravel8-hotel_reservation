@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title','Admin Panel Category Add')
+@section('title','Admin Panel Edit Category')
 
 @section('content')
     <div class="container-fluid py-4">
@@ -9,7 +9,7 @@
                 <div class="card my-4">
                     <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                         <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                            <h6 class="text-white text-capitalize ps-3">Category Add</h6>
+                            <h6 class="text-white text-capitalize ps-3">Edit Category</h6>
                         </div>
                     </div>
                     <div class="card-body px-0 pb-2">
@@ -19,35 +19,36 @@
 
                                 </thead>
                                 <tbody>
-                                <form role="form" action="{{route('admin_category_create')}}" method="post">
+                                <form role="form" action="{{route('admin_category_update',['id'=>$data->id])}}" method="post">
                                     @csrf
                                     <div class="card-body">
                                         <div class="input-group input-group-outline mb-3">
-                                            <label class="form-label"></label>
+
                                             <select class="form-control" name="parent_id">
-                                                <option value="0" selected="selected">Main Category</option>
+                                                <option value="0" >Main Category</option>
                                                 @foreach($datalist as $rs)
-                                                    <option value="{{$rs->id}}">{{$rs->title}}</option>
+                                                    <option value="{{$rs->id}}" @if ($rs->id == $data->parent_id) selected="selected" @endif>{{$rs->title}}</option>
                                                 @endforeach
                                             </select>
                                         </div>
                                         <div class="input-group input-group-outline mb-3">
-                                            <label class="form-label">Title</label>
-                                            <input type="text" name="title" class="form-control">
+                                            <label class="form-label"></label>
+                                            <input type="text" name="title" value="{{$data->title}}" class="form-control">
                                         </div>
                                         <div class="input-group input-group-outline mb-3">
-                                            <label class="form-label">Keywords</label>
-                                            <input type="text" name="keywords" class="form-control">
+                                            <label class="form-label"></label>
+                                            <input type="text" name="keywords" value="{{$data->keywords}}" class="form-control">
                                         </div>
                                         <div class="input-group input-group-outline mb-3">
-                                            <label class="form-label">Description</label>
-                                            <input type="text" name="description" class="form-control">
+                                            <label class="form-label"></label>
+                                            <input type="text" name="description" value="{{$data->description}}" class="form-control">
                                         </div>
                                         <div class="input-group input-group-outline mb-3">
                                             <label class="form-label"></label>
                                             <select class="form-control" name="status">
+                                                <option selected="selected">{{$data->status}}</option>
                                                 <option >True</option>
-                                                <option selected="selected">False</option>
+                                                <option >False</option>
                                             </select>
                                         </div>
 
@@ -55,7 +56,7 @@
                                     <!-- /.card-body -->
 
                                     <div class="card-footer">
-                                        <button type="submit" class="btn btn-primary">Add Category</button>
+                                        <button type="submit" class="btn btn-primary">Update Category</button>
                                     </div>
                                 </form>
 
