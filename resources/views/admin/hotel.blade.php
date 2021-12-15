@@ -43,10 +43,14 @@
                                 @foreach($datalist as $rs)
                                     <tr>
                                         <td><p class="text-xs font-weight-bold mb-0">{{$rs->id}}</p></td>
-                                        <td><p class="text-xs font-weight-bold mb-0">{{$rs->parent_id}}</p></td>
+                                        <td><p class="text-xs font-weight-bold mb-0">{{$rs->category_id}}</p></td>
                                         <td class="align-middle text-center text-sm"><p class="text-xs font-weight-bold mb-0">{{$rs->title}}</p></td>
                                         <td class="align-middle text-center text-sm"><p class="text-xs font-weight-bold mb-0">{{$rs->status}}</p></td>
-                                        <td class="align-middle text-center text-sm"><p class="text-xs font-weight-bold mb-0">{{$rs->image}}</p></td>
+                                        <td class="align-middle text-center text-sm">
+                                            @if($rs->image)
+                                                <img src="{{\Illuminate\Support\Facades\Storage::url($rs->image)}}" height="30" alt="">
+                                            @endif
+                                        </td>
                                         <td class="align-middle text-center text-sm"><p class="text-xs font-weight-bold mb-0">{{$rs->star}}</p></td>
                                         <td class="align-middle text-center text-sm"><p class="text-xs font-weight-bold mb-0">{{$rs->phone}}</p></td>
                                         <td class="align-middle text-center text-sm"><p class="text-xs font-weight-bold mb-0"><a href="{{route('admin_hotel_edit',['id'=>$rs->id])}}">Edit </a></p></td>
@@ -56,7 +60,7 @@
                                 @endforeach
 
 
-                                <a href="{{route('admin_category_add')}}" type="button" class="btn btn-primary" style="width: 200px">Add Hotel</a>
+                                <a href="{{route('admin_hotel_add')}}" type="button" class="btn btn-primary" style="width: 200px">Add Hotel</a>
 
                                 </tbody>
                             </table>

@@ -3,8 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Hotel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class HotelController extends Controller
 {
@@ -26,7 +30,8 @@ class HotelController extends Controller
      */
     public function create()
     {
-        //
+        $datalist = Category::all();
+        return view('admin.hotel_add',['datalist'=>$datalist]);
     }
 
     /**
@@ -37,7 +42,26 @@ class HotelController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = new Hotel;
+        $data->category_id=$request->input('category_id');
+        $data->title=$request->input('title');
+        $data->keywords=$request->input('keywords');
+        $data->descriptions=$request->input('descriptions');
+        $data->detail=$request->input('detail');
+        $data->star=$request->input('star');
+        $data->address=$request->input('address');
+        $data->phone=(int)$request->input('phone');
+        $data->fax=(int)$request->input('fax');
+        $data->email=$request->input('email');
+        $data->city=$request->input('city');
+        $data->country=$request->input('country');
+        $data->location=$request->input('location');
+        $data->userid=Auth::id();
+        $data->status=$request->input('status');
+        $data->image = Storage::putFile('images', $request->file('image'));
+        $data->save();
+        return redirect()->route('admin_hotels');
+
     }
 
     /**
@@ -57,9 +81,11 @@ class HotelController extends Controller
      * @param  \App\Models\Hotel  $hotel
      * @return \Illuminate\Http\Response
      */
-    public function edit(Hotel $hotel)
+    public function edit(Hotel $hotel,$id)
     {
-        //
+        $data = Hotel::find($id);
+        $datalist = Category::all();
+        return view('admin.hotel_edit',['data'=>$data,'datalist'=>$datalist]);
     }
 
     /**
@@ -69,9 +95,27 @@ class HotelController extends Controller
      * @param  \App\Models\Hotel  $hotel
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Hotel $hotel)
+    public function update(Request $request, Hotel $hotel,$id)
     {
-        //
+        $data=Hotel::find($id);
+        $data->category_id=$request->input('category_id');
+        $data->title=$request->input('title');
+        $data->keywords=$request->input('keywords');
+        $data->descriptions=$request->input('descriptions');
+        $data->detail=$request->input('detail');
+        $data->star=$request->input('star');
+        $data->address=$request->input('address');
+        $data->phone=(int)$request->input('phone');
+        $data->fax=(int)$request->input('fax');
+        $data->email=$request->input('email');
+        $data->city=$request->input('city');
+        $data->country=$request->input('country');
+        $data->location=$request->input('location');
+        $data->userid=Auth::id();
+        $data->status=$request->input('status');
+        $data->image = Storage::putFile('images', $request->file('image'));
+        $data->save();
+        return redirect()->route('admin_hotels');
     }
 
     /**
@@ -80,8 +124,9 @@ class HotelController extends Controller
      * @param  \App\Models\Hotel  $hotel
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Hotel $hotel)
+    public function destroy(Hotel $hotel,$id)
     {
-        //
+        DB::table('hotels')->where('id','=', $id)->delete();
+        return redirect()->route('admin_hotels');
     }
 }

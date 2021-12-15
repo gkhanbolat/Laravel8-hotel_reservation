@@ -14,7 +14,7 @@
                     </div>
                     <div class="card-body px-0 pb-2">
                         <div class="table-responsive p-0">
-                            <table class="table align-items-center mb-0">
+                            <table >
                                 <thead>
 
                                 </thead>
@@ -31,18 +31,22 @@
                                                 @endforeach
                                             </select>
                                         </div>
+                                        <p>Title</p>
                                         <div class="input-group input-group-outline mb-3">
                                             <label class="form-label"></label>
                                             <input type="text" name="title" value="{{$data->title}}" class="form-control">
                                         </div>
+                                        <p>Keywords</p>
                                         <div class="input-group input-group-outline mb-3">
                                             <label class="form-label"></label>
                                             <input type="text" name="keywords" value="{{$data->keywords}}" class="form-control">
                                         </div>
+                                        <p>Description</p>
                                         <div class="input-group input-group-outline mb-3">
                                             <label class="form-label"></label>
                                             <input type="text" name="description" value="{{$data->description}}" class="form-control">
                                         </div>
+                                        <p>Status</p>
                                         <div class="input-group input-group-outline mb-3">
                                             <label class="form-label"></label>
                                             <select class="form-control" name="status">
