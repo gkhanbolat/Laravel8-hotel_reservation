@@ -1,22 +1,46 @@
+@php
+    $parentCategories = \App\Http\Controllers\HomeController::categoryList()
+@endphp
 <body class="tm-gray-bg">
 <!-- Header -->
 <div class="tm-header">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6 col-md-4 col-sm-3 tm-site-name-container">
+            <div class="col-lg-3   tm-site-name-container">
                 <a href="#" class="tm-site-name">Holiday</a>
             </div>
-            <div class="col-lg-6 col-md-8 col-sm-9">
+            <div class="">
                 <div class="mobile-menu-icon">
                     <i class="fa fa-bars"></i>
                 </div>
                 <nav class="tm-nav">
-                    <ul>
-                        <li><a href="index.html" class="active">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="tours.html">Our Tours</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+
+
+
+                    <ul type="none">
+                        <li><a href="#">Ana Sayfa</a></li>
+                        <li><a>Categories</a>
+                            <ul type="none">
+                            @foreach($parentCategories as $rs)
+                                <li><a>{{$rs->title}}</a>
+
+
+                                </li>
+                                    @endforeach
+                            </ul>
+
+                        </li>
+
+                        <li><a href="#">BTT</a>
+                            <ul type="none">
+                                <li><a href="#">Anakart</a></li>
+                                <li><a href="#">İşlemci</a></li>
+                                <li><a href="#">Bellekler</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">İletişim</a></li>
                     </ul>
+
                 </nav>
             </div>
         </div>

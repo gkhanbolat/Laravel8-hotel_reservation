@@ -33,7 +33,7 @@
                                             <label class="form-label"></label>
                                             <select class="form-control" name="category_id">
                                                 @foreach($datalist as $rs)
-                                                    <option value="{{$rs->id}}">{{$rs->title}}</option>
+                                                    <option value="{{$rs->id}}">{{\App\Http\Controllers\Admin\CategoryController::getParentsTree($rs,$rs->title)}}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -65,11 +65,11 @@
                                         </div>
                                         <div class="input-group input-group-outline mb-3">
                                             <label class="form-label">Phone</label>
-                                            <input type="number" name="phone" class="form-control">
+                                            <input type="text" name="phone" class="form-control">
                                         </div>
                                         <div class="input-group input-group-outline mb-3">
                                             <label class="form-label">Fax</label>
-                                            <input type="number" name="fax" class="form-control">
+                                            <input type="text" name="fax" class="form-control">
                                         </div>
                                         <div class="input-group input-group-outline mb-3">
                                             <label class="form-label">E-mail</label>

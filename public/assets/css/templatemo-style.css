@@ -46,12 +46,51 @@ body { overflow-x: hidden; }
 	display: block;
 	overflow: hidden;
 }
-.tm-nav li {
-	list-style: none;
-	float: left;
+
+.tm-nav li{
+  float: left;
+  width: 150px;
 }
+
+.tm-nav ul li ul{
+  display: none;
+}
+ 
+.tm-nav ul li ul li a:hover{
+  padding-left: 15px;
+}
+
+.tm-nav ul li ul{
+  display: none;
+}
+
+.tm-nav ul li:hover ul{
+  display: block;
+}
+
+
+
+
+.tm-nav ul li a{
+  
+  display: block;
+  color: #838383;
+  font-weight: bold;
+  text-align: center;
+  padding: 45px 34px 15px 34px;
+}
+
+.tm-nav ul li ul li a{
+  background: black;
+  text-align: left;
+  padding: 45px 34px 15px 34px;
+  border-bottom: 1px solid #333;
+  font-size: .8em;
+}
+
+
 .tm-nav li a {
-	color: #838383;
+	
 	display: block;
 	padding: 45px 34px 15px 34px;
 	text-transform: uppercase;

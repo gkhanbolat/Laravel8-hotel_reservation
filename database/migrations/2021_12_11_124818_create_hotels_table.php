@@ -23,8 +23,8 @@ class CreateHotelsTable extends Migration
             $table->string('detail')->nullable();
             $table->integer('star')->nullable();
             $table->string('address',150)->nullable();
-            $table->integer('phone')->nullable();
-            $table->integer('fax')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('fax')->nullable();
             $table->string('email',30)->nullable();
             $table->string('city',25)->nullable();
             $table->string('country',25)->nullable();

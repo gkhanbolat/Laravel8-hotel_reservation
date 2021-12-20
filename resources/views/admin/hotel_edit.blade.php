@@ -65,11 +65,11 @@
                                         </div>
                                         <p>Phone</p>
                                         <div class="input-group input-group-outline mb-3">
-                                            <input type="number" name="phone" value="{{$data->phone}}" class="form-control">
+                                            <input type="text" name="phone" value="{{$data->phone}}" class="form-control">
                                         </div>
                                         <p>Fax</p>
                                         <div class="input-group input-group-outline mb-3">
-                                            <input type="number" name="fax" value="{{$data->fax}}" class="form-control">
+                                            <input type="text" name="fax" value="{{$data->fax}}" class="form-control">
                                         </div>
                                         <p>E-mail</p>
                                         <div class="input-group input-group-outline mb-3">
@@ -110,7 +110,7 @@
                                         </div>
                                         <p>Image</p>
                                         <div class="input-group input-group-outline mb-3">
-                                            <input type="file" name="image" value="{{$data->image}}" class="form-control">
+                                            <input type="file" name="image" class="form-control">
                                             @if($data->image)
                                                 <img src="{{\Illuminate\Support\Facades\Storage::url($data->image)}}" height="100" alt="">
                                             @endif

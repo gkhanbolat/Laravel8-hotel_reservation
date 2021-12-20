@@ -29,7 +29,7 @@
                                 <thead>
                                 <tr>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Id</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Category ID</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Category</th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Title</th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Image</th>
@@ -44,7 +44,7 @@
                                 @foreach($datalist as $rs)
                                     <tr>
                                         <td><p class="text-xs font-weight-bold mb-0">{{$rs->id}}</p></td>
-                                        <td><p class="text-xs font-weight-bold mb-0">{{$rs->category_id}}</p></td>
+                                        <td><p class="text-xs font-weight-bold mb-0">{{\App\Http\Controllers\Admin\CategoryController::getParentsTree($rs->category,$rs->title)}}</p></td>
                                         <td class="align-middle text-center text-sm"><p class="text-xs font-weight-bold mb-0">{{$rs->title}}</p></td>
                                         <td class="align-middle text-center text-sm"><p class="text-xs font-weight-bold mb-0">{{$rs->status}}</p></td>
                                         <td class="align-middle text-center text-sm">

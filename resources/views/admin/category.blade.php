@@ -40,7 +40,7 @@
                                 @foreach($datalist as $rs)
                                     <tr>
                                         <td><p class="text-xs font-weight-bold mb-0">{{$rs->id}}</p></td>
-                                        <td><p class="text-xs font-weight-bold mb-0">{{$rs->parent_id}}</p></td>
+                                        <td><p class="text-xs font-weight-bold mb-0">{{\App\Http\Controllers\Admin\CategoryController::getParentsTree($rs,$rs->title)}}</p></td>
                                         <td class="align-middle text-center text-sm"><p class="text-xs font-weight-bold mb-0">{{$rs->title}}</p></td>
                                         <td class="align-middle text-center text-sm"><p class="text-xs font-weight-bold mb-0">{{$rs->status}}</p></td>
                                         <td class="align-middle text-center text-sm"><p class="text-xs font-weight-bold mb-0"><a href="{{route('admin_category_edit',['id'=>$rs->id])}}"><img src="{{asset('assets/admin/image')}}/edit.png" height="25"> </a></p></td>
