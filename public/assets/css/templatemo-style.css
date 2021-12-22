@@ -33,7 +33,7 @@ body { overflow-x: hidden; }
 .tm-site-name-container { padding-top: 20px; }
 .tm-site-name {
 	color: #FCDD44;
-	font-size: 27px;
+	font-size: 25px;
 	font-weight: 600;
 	text-transform: uppercase;
 }
@@ -49,7 +49,7 @@ body { overflow-x: hidden; }
 
 .tm-nav li{
   float: left;
-  width: 150px;
+  width: 130px;
 }
 
 .tm-nav ul li ul{
@@ -552,9 +552,10 @@ hr { border-top: 1px solid #111010; }
 	font-weight: 300;
 }
 .tm-testimonials-content {
-	padding: 30px;
+	
+	padding: 70px;
 	text-align: center;
-	font-style: italic;
+	
 }
 .tm-testimonial {
 	padding-top: 20px;

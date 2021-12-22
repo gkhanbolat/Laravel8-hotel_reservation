@@ -1,3 +1,6 @@
+@php
+    $setting=\App\Http\Controllers\HomeController::getsetting()
+@endphp
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +10,7 @@
     <meta name="keywords" content="@yield('keywords')">
     <meta name="author" content="Gokhan BOLAT">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Holiday</title>
+    <title> @yield('title') </title>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,700' rel='stylesheet' type='text/css'>
     <link href="{{asset('assets')}}/css/font-awesome.min.css" rel="stylesheet">
     <link href="{{asset('assets')}}/css/bootstrap.min.css" rel="stylesheet">

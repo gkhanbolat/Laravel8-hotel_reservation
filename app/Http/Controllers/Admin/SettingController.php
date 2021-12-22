@@ -78,6 +78,7 @@ class SettingController extends Controller
     public function update(Request $request, Setting $setting)
     {
         $id=$request->input('id');
+
         $data=Setting::find($id);
         $data->title=$request->input('title');
         $data->keywords=$request->input('keywords');
@@ -85,7 +86,7 @@ class SettingController extends Controller
         $data->company=$request->input('company');
         $data->address=$request->input('address');
         $data->phone=$request->input('phone');
-        $data->fax=(int)$request->input('fax');
+        $data->fax=$request->input('fax');
         $data->email=$request->input('email');
         $data->smtpserver=$request->input('smtpserver');
         $data->smtpemail=$request->input('smtpemail');
