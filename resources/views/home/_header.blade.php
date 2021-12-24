@@ -30,7 +30,6 @@
                             </ul>
 
                         </li>
-                        <li><a href="{{route('home')}}">Home</a></li>
                         <li><a href="{{route('aboutus')}}">About us</a></li>
                         <li><a href="{{route('contact')}}">Contact</a></li>
                         <li><a href="{{route('references')}}">References</a></li>
@@ -43,7 +42,8 @@
                             </ul>
                         @endauth
                         @guest
-                            <li><a href="/login">Login</a>/ <a href="/register">Register</a></li>
+                            <li><a href="/login">Login</a></li>
+                            <li><a href="/register">Register</a></li>
                         @endguest
 
 

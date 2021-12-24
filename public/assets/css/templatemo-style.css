@@ -642,6 +642,7 @@ hr { border-top: 1px solid #111010; }
 	text-align: justify;
 }
 .slider-social { text-align: right; }
+.slider-where { text-align: center; }
 
 /* Contact */
 .tm-contact-box-1 {
@@ -940,4 +941,8 @@ hr { border-top: 1px solid #111010; }
 
 @media screen and (max-width: 400px) {
 	.tm-section-title {	font-size: 28px; }
+}
+
+.margin-top{
+	margin-top: 40px;
 }
