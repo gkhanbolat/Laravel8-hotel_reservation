@@ -22,7 +22,7 @@
                         <li><a href="#">Categories</a>
                             <ul type="none">
                             @foreach($parentCategories as $rs)
-                                <li><a href="#">{{$rs->title}}</a>
+                                <li><a href="{{route('categoryhotel',['id'=>$rs->id,'slug'=>$rs->slug])}}">{{$rs->title}}</a>
 
 
                                 </li>

@@ -45,6 +45,7 @@ class HotelController extends Controller
         $data = new Hotel;
         $data->category_id=$request->input('category_id');
         $data->title=$request->input('title');
+        $data->slug=$request->input('slug');
         $data->keywords=$request->input('keywords');
         $data->descriptions=$request->input('descriptions');
         $data->detail=$request->input('detail');
@@ -103,6 +104,7 @@ class HotelController extends Controller
         $data->category_id=$request->input('category_id');
         $data->title=$request->input('title');
         $data->keywords=$request->input('keywords');
+        $data->slug=$request->input('slug');
         $data->descriptions=$request->input('descriptions');
         $data->detail=$request->input('detail');
         $data->star=$request->input('star');

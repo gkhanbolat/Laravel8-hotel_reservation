@@ -36,6 +36,11 @@
                                             <label class="form-label"></label>
                                             <input type="text" name="title" value="{{$data->title}}" class="form-control">
                                         </div>
+                                        <p>Slug</p>
+                                        <div class="input-group input-group-outline mb-3">
+                                            <label class="form-label"></label>
+                                            <input type="text" name="slug" value="{{$data->slug}}" class="form-control">
+                                        </div>
                                         <p>Keywords</p>
                                         <div class="input-group input-group-outline mb-3">
                                             <label class="form-label"></label>

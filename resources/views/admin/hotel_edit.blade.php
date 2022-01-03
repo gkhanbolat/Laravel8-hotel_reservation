@@ -42,9 +42,14 @@
                                         <div class="input-group input-group-outline mb-3">
                                             <input type="text" name="title" value="{{$data->title}}" class="form-control">
                                         </div>
-                                        <p>Keywordss</p>
+
+                                        <p>Keywords</p>
                                         <div class="input-group input-group-outline mb-3">
                                             <input type="text" name="keywords" value="{{$data->keywords}}" class="form-control">
+                                        </div>
+                                        <p>Slug</p>
+                                        <div class="input-group input-group-outline mb-3">
+                                            <input type="text" name="keywords" value="{{$data->slug}}" class="form-control">
                                         </div>
                                         <p>Description</p>
                                         <div class="input-group input-group-outline mb-3">

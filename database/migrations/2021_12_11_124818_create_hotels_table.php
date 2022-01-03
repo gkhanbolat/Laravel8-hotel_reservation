@@ -17,6 +17,7 @@ class CreateHotelsTable extends Migration
             $table->id()->autoIncrement();
             $table->string('title',150);
             $table->string('keywords')->nullable();
+            $table->string('slug')->nullable();
             $table->string('descriptions')->nullable();
             $table->string('image',75)->nullable();
             $table->integer('category_id')->nullable();

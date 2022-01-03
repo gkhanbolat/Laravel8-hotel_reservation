@@ -946,3 +946,19 @@ hr { border-top: 1px solid #111010; }
 .margin-top{
 	margin-top: 40px;
 }
+
+
+.tm-home-box-4 {
+	margin-bottom: 50px;
+	max-width: 555px;
+	overflow: hidden;
+}
+.tm-home-box-4-info {
+    
+    max-width: 4005px;
+    border: 1px solid #CCC;
+	background: white;
+	
+	
+}
+.tm-home-box-4-description { padding: 40px 30px 44px; }

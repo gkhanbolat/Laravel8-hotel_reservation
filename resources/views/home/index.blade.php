@@ -1,5 +1,7 @@
 @php
-    $setting=\App\Http\Controllers\HomeController::getsetting()
+    $setting=\App\Http\Controllers\HomeController::getsetting();
+    $slider=\App\Http\Controllers\HomeController::slider();
+
 @endphp
 
 @extends('layouts.home')

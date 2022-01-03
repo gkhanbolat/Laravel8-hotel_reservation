@@ -56,6 +56,7 @@ class CategoryController extends Controller
         DB::table('categories')->insert([
             'parent_id'=>$request->input('parent_id'),
             'title'=>$request->input('title'),
+            'slug'=>$request->input('slug'),
             'keywords'=>$request->input('keywords'),
             'description'=>$request->input('description'),
             'status'=>$request->input('status')
@@ -110,6 +111,7 @@ class CategoryController extends Controller
         $data = Category::find($id);
         $data->parent_id = $request->input('parent_id');
         $data->title = $request->input('title');
+        $data->slug = $request->input('slug');
         $data->keywords = $request->input('keywords');
         $data->description = $request->input('description');
         $data->status = $request->input('status');

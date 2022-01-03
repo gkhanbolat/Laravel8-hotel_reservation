@@ -23,8 +23,11 @@ Route::get('/references',[HomeController::class, 'references'])->name('reference
 Route::get('/faq',[HomeController::class, 'faq'])->name('faq');
 Route::get('/contact',[HomeController::class, 'contact'])->name('contact');
 Route::post('/sendmessage',[HomeController::class, 'sendmessage'])->name('sendmessage');
+Route::get('/hotel/{id}/{slug}',[\App\Http\Controllers\CaregoryController::class, 'hotel'])->name('hotel');
+Route::get('/categoryhotel/{id}/{slug}',[\App\Http\Controllers\CaregoryController::class, 'categoryhotel'])->name('categoryhotel');
 
 Route::get('/test/{id}',[HomeController::class, 'test']);
+Route::get('/addtocart/{id}',[\App\Http\Controllers\CaregoryController::class,'addtocart'])->name('addtocart');
 
 
 Route::get('/admin',[App\Http\Controllers\Admin\HomeController::class, 'index'])->name('adminhome')->middleware("auth");

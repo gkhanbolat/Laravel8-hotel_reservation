@@ -38,6 +38,10 @@
                                             <input type="text" name="title" class="form-control">
                                         </div>
                                         <div class="input-group input-group-outline mb-3">
+                                            <label class="form-label">Slug</label>
+                                            <input type="text" name="slug" class="form-control">
+                                        </div>
+                                        <div class="input-group input-group-outline mb-3">
                                             <label class="form-label">Keywords</label>
                                             <input type="text" name="keywords" class="form-control">
                                         </div>
