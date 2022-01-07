@@ -45,9 +45,21 @@
                             <li><a href="/login">Login</a></li>
                             <li><a href="/register">Register</a></li>
                         @endguest
+                            >
 
 
                     </ul>
+                    <div class="header-search">
+                        <form action="{{route('gethotel')}}" method="post">
+                            @csrf
+                            @livewire('search')
+                            <button type="submit"><i></i></button>
+
+                        </form>
+
+                        @livewireScripts
+
+                    </div>
 
 
                 </nav>

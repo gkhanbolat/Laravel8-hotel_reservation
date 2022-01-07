@@ -28,6 +28,8 @@
 <script type="text/javascript" src="{{asset('assets')}}/js/bootstrap.min.js"></script>					<!-- bootstrap js -->
 <script type="text/javascript" src="{{asset('assets')}}/js/bootstrap-datetimepicker.min.js"></script>	<!-- bootstrap date time picker js, http://eonasdan.github.io/bootstrap-datetimepicker/ -->
 <script type="text/javascript" src="{{asset('assets')}}/js/jquery.flexslider-min.js"></script>
+
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <!--
 	<script src="js/froogaloop.js"></script>
 	<script src="js/jquery.fitvid.js"></script>
