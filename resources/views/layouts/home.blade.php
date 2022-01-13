@@ -121,6 +121,7 @@
 
     });
 </script>
+@yield('headerjs')
 @include('home._header')
 
 @section('content')

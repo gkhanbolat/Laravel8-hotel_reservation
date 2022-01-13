@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Faq;
 use App\Models\Hotel;
 use App\Models\Image;
 use App\Models\Review;
@@ -46,6 +47,11 @@ class CaregoryController extends Controller
     public function hotellist($search){
         $datalist=Hotel::where('title','like','%'.$search.'%')->get();
         return view('home.search_hotel',['search'=>$search,'datalist'=>$datalist]);
+    }
+
+    public function faq(){
+        $datalist=Faq::all()->sortBy('position');
+        return view('home.faq',['datalist'=>$datalist]);
     }
 
 

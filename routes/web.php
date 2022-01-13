@@ -20,7 +20,7 @@ Route::get('/',[HomeController::class, 'index'])->name('home');
 Route::get('/home',[HomeController::class, 'index'])->name('home');
 Route::get('/aboutus',[HomeController::class, 'aboutus'])->name('aboutus');
 Route::get('/references',[HomeController::class, 'references'])->name('references');
-Route::get('/faq',[HomeController::class, 'faq'])->name('faq');
+Route::get('/faq',[\App\Http\Controllers\CaregoryController::class, 'faq'])->name('faq');
 Route::get('/contact',[HomeController::class, 'contact'])->name('contact');
 Route::post('/sendmessage',[HomeController::class, 'sendmessage'])->name('sendmessage');
 Route::get('/hotel/{id}/{slug}',[\App\Http\Controllers\CaregoryController::class, 'hotel'])->name('hotel');
@@ -110,7 +110,34 @@ Route::middleware('auth')->prefix('admin')->group(function (){
 
     });
 
+    Route::prefix('faq')->group(function (){
+        Route::get('/',[\App\Http\Controllers\Admin\FaqController::class, 'index'])->name('admin_faq');
+        Route::get('create',[\App\Http\Controllers\Admin\FaqController::class, 'create'])->name('admin_faq_add');
+        Route::post('store',[\App\Http\Controllers\Admin\FaqController::class, 'store'])->name('admin_faq_store');
+        Route::get('edit/{id}',[\App\Http\Controllers\Admin\FaqController::class, 'edit'])->name('admin_faq_edit');
+        Route::post('update/{id}',[\App\Http\Controllers\Admin\FaqController::class, 'update'])->name('admin_faq_update');
+        Route::get('delete/{id}',[\App\Http\Controllers\Admin\FaqController::class, 'destroy'])->name('admin_faq_delete');
+        Route::get('show',[\App\Http\Controllers\Admin\FaqController::class, 'show'])->name('admin_faq_show');
+
+
+    });
+
     Route::get('setting',[\App\Http\Controllers\Admin\SettingController::class, 'index'])->name('admin_setting');
     Route::post('setting/update',[\App\Http\Controllers\Admin\SettingController::class, 'update'])->name('admin_setting_update');
+
+});
+
+Route::middleware('auth')->prefix('user')->group(function () {
+    Route::prefix('reservation')->group(function (){
+        Route::get('/',[\App\Http\Controllers\ReservationController::class, 'index'])->name('user_reservation');
+        Route::get('create',[\App\Http\Controllers\ReservationController::class, 'create'])->name('user_reservation_add');
+        Route::post('store',[\App\Http\Controllers\ReservationController::class, 'store'])->name('user_reservation_store');
+        Route::get('edit/{id}',[\App\Http\Controllers\ReservationController::class, 'edit'])->name('user_reservation_edit');
+        Route::post('update/{id}',[\App\Http\Controllers\ReservationController::class, 'update'])->name('user_reservation_update');
+        Route::get('delete/{id}',[\App\Http\Controllers\ReservationController::class, 'destroy'])->name('user_reservation_delete');
+        Route::get('show',[\App\Http\Controllers\ReservationController::class, 'show'])->name('user_reservation_show');
+
+
+    });
 
 });
