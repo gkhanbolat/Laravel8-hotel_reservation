@@ -122,6 +122,19 @@ Route::middleware('auth')->prefix('admin')->group(function (){
 
     });
 
+    Route::prefix('room')->group(function (){
+        Route::get('/{hotel_id}',[\App\Http\Controllers\Admin\RoomController::class, 'index'])->name('admin_rooms');
+        Route::get('create/{hotel_id}',[\App\Http\Controllers\Admin\RoomController::class, 'create'])->name('admin_room_add');
+        Route::post('store/{hotel_id}',[\App\Http\Controllers\Admin\RoomController::class, 'store'])->name('admin_room_store');
+        Route::get('edit/{id}',[\App\Http\Controllers\Admin\RoomController::class, 'edit'])->name('admin_room_edit');
+        Route::post('update/{id}/{hotel_id}',[\App\Http\Controllers\Admin\RoomController::class, 'update'])->name('admin_room_update');
+        Route::get('delete/{id}',[\App\Http\Controllers\Admin\RoomController::class, 'destroy'])->name('admin_room_delete');
+        Route::get('show',[\App\Http\Controllers\Admin\RoomController::class, 'show'])->name('admin_room_show');
+
+
+    });
+
+
     Route::get('setting',[\App\Http\Controllers\Admin\SettingController::class, 'index'])->name('admin_setting');
     Route::post('setting/update',[\App\Http\Controllers\Admin\SettingController::class, 'update'])->name('admin_setting_update');
 
@@ -130,7 +143,7 @@ Route::middleware('auth')->prefix('admin')->group(function (){
 Route::middleware('auth')->prefix('user')->group(function () {
     Route::prefix('reservation')->group(function (){
         Route::get('/',[\App\Http\Controllers\ReservationController::class, 'index'])->name('user_reservation');
-        Route::get('create',[\App\Http\Controllers\ReservationController::class, 'create'])->name('user_reservation_add');
+        Route::post('create',[\App\Http\Controllers\ReservationController::class, 'create'])->name('user_reservation_add');
         Route::post('store',[\App\Http\Controllers\ReservationController::class, 'store'])->name('user_reservation_store');
         Route::get('edit/{id}',[\App\Http\Controllers\ReservationController::class, 'edit'])->name('user_reservation_edit');
         Route::post('update/{id}',[\App\Http\Controllers\ReservationController::class, 'update'])->name('user_reservation_update');

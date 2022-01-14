@@ -1,5 +1,5 @@
 @php
-    $data=\App\Http\Controllers\HomeController::popular()
+    $data=\App\Http\Controllers\HomeController::popular();
 @endphp
 <section class="tm-white-bg section-padding-bottom">
     <div class="container">
@@ -18,11 +18,13 @@
                     </div>
                     <div class="tm-home-box-3-info">
                         <p class="tm-home-box-3-description">{{$rs->descriptions}}</p>
-                        <div class="tm-home-box-2-container">
-                            <a href="#" class="tm-home-box-2-link"><i class="fa fa-heart tm-home-box-2-icon border-right"></i></a>
-                            <a href="#" class="tm-home-box-2-link"><span class="tm-home-box-2-description box-3">{{$rs->title}}</span></a>
-                            <a href="#" class="tm-home-box-2-link"><i class="fa fa-edit tm-home-box-2-icon border-left"></i></a>
-                        </div>
+
+                            <div class="tm-home-box-2-container">
+                                <a href="{{route('hotel',['id'=>$rs->id,'slug'=>$rs->slug])}}" class="tm-home-box-2-link"><i class="fa fa-heart tm-home-box-2-icon border-right"></i></a>
+                                <a href="{{route('hotel',['id'=>$rs->id,'slug'=>$rs->slug])}}" class="tm-home-box-2-link"><span class="tm-home-box-2-description box-3">{{$rs->title}}</span></a>
+                                <a href="{{route('hotel',['id'=>$rs->id,'slug'=>$rs->slug])}}" class="tm-home-box-2-link"><i class="fa fa-edit tm-home-box-2-icon border-left"></i></a>
+                            </div>
+
                     </div>
                 </div>
 

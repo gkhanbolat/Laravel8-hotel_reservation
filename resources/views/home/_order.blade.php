@@ -1,3 +1,8 @@
+@php
+    $data=\App\Models\Room::all();
+    $name=\App\Models\Hotel::all();
+@endphp
+
 <section class="container tm-home-section-1" id="more">
     <div class="row">
         <div class="col-lg-4 col-md-4 col-sm-6">
@@ -19,11 +24,10 @@
                                     <div class="form-group">
                                         <select class="form-control">
                                             <option value="">-- Select Hotel -- </option>
-                                            <option value="shangrila">Beachotel</option>
-                                            <option value="chatrium">Butik otel</option>
-                                            <option value="fourseasons">Şehir Oteli</option>
-                                            <option value="hilton">Pansyion</option>
-                                            <option value="apart">Apart Otel</option>
+                                            @foreach($name as $nm)
+                                            <option value="{{$nm->hotel_id}}">{{$nm->title}}</option>
+                                            @endforeach
+
                                         </select>
                                     </div>
                                     <div class="form-group">
@@ -45,11 +49,14 @@
                                     <div class="form-group margin-bottom-0">
                                         <select class="form-control">
                                             <option value="">-- Room Type -- </option>
-                                            <option value="1">Single bed</option>
-                                            <option value="2">Double bed</option>
-                                            <option value="3">Three Bed</option>
-                                            <option value="4">Family room</option>
-                                            <option value="5p">Suit</option>
+                                            @foreach($data as $dt)
+                                                @foreach($name as $nm)
+                                                    @if($nm->id==$dt->hotel_id)
+                                                        <option value="{{$dt->id}}">{{$dt->title}}</option>
+                                                    @endif
+                                                @endforeach
+                                            @endforeach
+
                                         </select>
                                     </div>
                                 </div>

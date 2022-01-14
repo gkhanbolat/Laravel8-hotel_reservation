@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Hotel;
 use App\Models\Message;
 use App\Models\Review;
+use App\Models\Room;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -32,14 +33,22 @@ class HomeController extends Controller
         return Hotel::select('title','image','id','slug')->limit(4)->get();
     }
     public static function popular(){
-        return Hotel::select('title','image','id','descriptions')->limit(4)->inRandomOrder()->get();
+        return Hotel::select('title','image','id','descriptions','slug')->limit(4)->inRandomOrder()->get();
     }
     public static function counter($id){
+
         return Review::where('hotel_id',$id)->count();
     }
     public static function averages($id){
         return Review::where('hotel_id',$id)->average('rate');
     }
+    public static function room(){
+        return Room::all();
+    }
+    public static function offer(){
+        return Hotel::select('title','image','id','slug')->limit(2)->get();
+    }
+
 
 
 

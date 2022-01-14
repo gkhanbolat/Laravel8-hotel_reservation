@@ -23,7 +23,7 @@
     <div class="container">
         <div class="row">
             <!-- contact form -->
-            @livewareScript
+
 
 
             <div class="col-md-7">
@@ -110,16 +110,18 @@
                 </div>
                 <div class="form-group margin-bottom-0">
                     <select class="form-control">
-                        <option value="">-- Room Type -- </option>
-                        <option value="1">Single bed</option>
-                        <option value="2">Double bed</option>
-                        <option value="3">Three Bed</option>
-                        <option value="4">Family room</option>
-                        <option value="5p">Suit</option>
+                        @foreach($room as $rm)
+                            @if($rm->status == 'True')
+                                <option value="">{{$rm->title}} </option>
+                            @endif
+                        @endforeach
                     </select>
                 </div>
+                <form action="{{'user_reservation_add'}}" method="post">
+                    @csrf
 
-                <a href="{{route('addtocart',['id'=>$data->id])}}" class="tm-tours-box-2-link">Book Now</a>
+                    <a class="tm-tours-box-2-link">Book Now</a>
+                </form>
                 <br><br><br><br>
 
             </div>

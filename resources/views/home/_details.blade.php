@@ -15,9 +15,9 @@
             <h3>{{$rs->detail}}</h3>
             <p class="tm-date">28 March 2016</p>
             <div class="tm-home-box-2-container">
-                <a href="#" class="tm-home-box-2-link"><i class="fa fa-heart tm-home-box-2-icon border-right"></i></a>
-                <a href="#" class="tm-home-box-2-link"><span class="tm-home-box-2-description">{{$rs->title}}</span></a>
-                <a href="#" class="tm-home-box-2-link"><i class="fa fa-edit tm-home-box-2-icon border-left"></i></a>
+                <a href="{{route('hotel',['id'=>$rs->id,'slug'=>$rs->slug])}}" class="tm-home-box-2-link"><i class="fa fa-heart tm-home-box-2-icon border-right"></i></a>
+                <a href="{{route('hotel',['id'=>$rs->id,'slug'=>$rs->slug])}}" class="tm-home-box-2-link"><span class="tm-home-box-2-description">{{$rs->title}}</span></a>
+                <a href="{{route('hotel',['id'=>$rs->id,'slug'=>$rs->slug])}}" class="tm-home-box-2-link"><i class="fa fa-edit tm-home-box-2-icon border-left"></i></a>
             </div>
         </div>
     </div>

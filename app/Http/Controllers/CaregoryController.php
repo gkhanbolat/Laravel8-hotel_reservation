@@ -7,6 +7,7 @@ use App\Models\Faq;
 use App\Models\Hotel;
 use App\Models\Image;
 use App\Models\Review;
+use App\Models\Room;
 use Illuminate\Http\Request;
 
 class CaregoryController extends Controller
@@ -24,7 +25,8 @@ class CaregoryController extends Controller
         $data=Hotel::find($id);
         $datalist=Image::where('hotel_id',$id)->get();
         $reviews=Review::where('hotel_id',$id)->get();
-        return view('home.hotel_detail',['data'=>$data,'datalist'=>$datalist,'reviews'=>$reviews]);
+        $room=Room::where('hotel_id',$id)->get();
+        return view('home.hotel_detail',['data'=>$data,'datalist'=>$datalist,'reviews'=>$reviews,'room'=>$room]);
     }
     public function addtocart($id){
         echo "Add to cart";
