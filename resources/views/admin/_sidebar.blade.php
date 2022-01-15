@@ -51,6 +51,23 @@
                     <span class="nav-link-text ms-1">Faq</span>
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="{{route('admin_reservation')}}">
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">R</i>
+                    </div>
+                    <span class="nav-link-text ms-1">Reservation</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="{{route('admin_users')}}">
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">U</i>
+                    </div>
+                    <span class="nav-link-text ms-1">Users</span>
+                </a>
+            </li>
+
 
             <li class="nav-item">
                 <a class="nav-link text-white" href="{{route('admin_setting')}}">

@@ -1,10 +1,18 @@
 @php
     $setting=\App\Http\Controllers\HomeController::getsetting();
+    $dataaa=\App\Models\Room::all();
+    $new=\App\Models\Reservation::all();
 
 @endphp
 @section('javascript')
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
 @endsection
 
 @extends('layouts.home')
@@ -86,41 +94,73 @@
 
 
                 </div>
-                <hr></hr>
+                <hr>
 
 
                 <br><br>
-
-
-                <div class="form-group">
-                    <div class='input-group date' id='datetimepicker1'>
-                        <input type='text' class="form-control" placeholder="Check-in Date" />
-                        <span class="input-group-addon">
-							                        <span class="fa fa-calendar"></span>
-							                    </span>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class='input-group date' id='datetimepicker2'>
-                        <input type='text' class="form-control" placeholder="Check-out Date" />
-                        <span class="input-group-addon">
-							                        <span class="fa fa-calendar"></span>
-							                    </span>
-                    </div>
-                </div>
-                <div class="form-group margin-bottom-0">
-                    <select class="form-control">
-                        @foreach($room as $rm)
-                            @if($rm->status == 'True')
-                                <option value="">{{$rm->title}} </option>
-                            @endif
-                        @endforeach
-                    </select>
-                </div>
-                <form action="{{'user_reservation_add'}}" method="post">
+                <form action="{{route('user_reservation_add',['id'=>$data->id])}}" method="post">
                     @csrf
+                    <div class="form-group">
+                        <div>
+                            <input type='date' name="checkin" class="form-control" placeholder="Check-in Date" />
+                        </div>
+                    </div>
+                    <div>
+                        <div >
+                            <input type='date' name="checkout" class="form-control" placeholder="Check-out Date" />
 
-                    <a class="tm-tours-box-2-link">Book Now</a>
+                        </div>
+                    </div>
+
+                    <div class="form-group margin-bottom-0">
+                        <select class="form-control" name="days">
+                            <option value="0">Days</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+
+                        </select>
+                    </div>
+                    <div class="form-group margin-bottom-0">
+                        <select class="form-control" name="room">
+                            @foreach($room as $rm)
+                                @if($rm->status == 'True')
+                                    <option value="{{$rm->id}}">{{$rm->title}} </option>
+                                @endif
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group margin-bottom-0">
+                        <select class="form-control" name="adults">
+                            <option value="0">Adults</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                    <div class="form-group margin-bottom-0">
+                        <select class="form-control" name="children">
+                            <option value="0">Children</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                    @auth
+
+                    <button type="submit" class="btn btn-primary">Book Now</button>
+                    @else
+                        <a href="/login" class="tm-submit-btn">For Submit Your Reservation, Please Login</a>
+                    @endauth
                 </form>
                 <br><br><br><br>
 

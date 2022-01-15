@@ -86,6 +86,7 @@
 
                             </div>
                         </div>
+                        @include('home.message')
 
                         <form action="{{ route('admin_logincheck')}}" method="post">
                             @csrf

@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Review;
+use App\Models\Reservation;
 use Illuminate\Http\Request;
 
-class ReviewController extends Controller
+class ReservationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,9 @@ class ReviewController extends Controller
      */
     public function index()
     {
-        $datalist=Review::all();
-        return view('admin.review',['datalist'=>$datalist]);
+        $data=Reservation::all();
+        return view('admin.reservation',['data'=>$data]);
+
     }
 
     /**
@@ -43,52 +44,49 @@ class ReviewController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Review  $review
+     * @param  \App\Models\Reservation  $reservation
      * @return \Illuminate\Http\Response
      */
-    public function show(Review $review,$id)
+    public function show(Reservation $reservation)
     {
-        $data=Review::find($id);
-        return view('admin.review_edit',['data'=>$data]);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Review  $review
+     * @param  \App\Models\Reservation  $reservation
      * @return \Illuminate\Http\Response
      */
-    public function edit(Review $review)
+    public function edit(Reservation $reservation,$id)
     {
-
-
+        $data=Reservation::find($id);
+        return view('admin.reservation_edit',['data'=>$data]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Review  $review
+     * @param  \App\Models\Reservation  $reservation
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Review $review,$id)
+    public function update(Request $request, Reservation $reservation,$id)
     {
-        $data=Review::find($id);
+        $data=Reservation::find($id);
         $data->status=$request->input('status');
         $data->save();
-        return back()->with('success','Review Updated');
+        return back()->with('success','Reservation Updated');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Review  $review
+     * @param  \App\Models\Reservation  $reservation
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Review $review,$id)
+    public function destroy(Reservation $reservation)
     {
-        $data=Review::find($id);
-        $data->delete();
-        return redirect()->back()->with('success','Review deleted');
+        //
     }
 }
