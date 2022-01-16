@@ -18,7 +18,7 @@ class RoomController extends Controller
      */
     public function index($hotel_id)
     {
-        $datalist=Hotel::select('id','title')->get();
+        $datalist=Hotel::find($hotel_id);
         $room = DB::table('rooms')->where('hotel_id','=',$hotel_id)->get();
         return view('admin.room',['room'=>$room,'datalist'=>$datalist]);
 
@@ -86,7 +86,7 @@ class RoomController extends Controller
      * @param  \App\Models\Room  $room
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Room $room,$hotel_id,$id)
+    public function update(Request $request, Room $room,$id,$hotel_id)
     {
         $data=Room::find($id);
         $data->hotel_id=$hotel_id;
@@ -100,7 +100,7 @@ class RoomController extends Controller
             $data->image = Storage::putFile('images', $request->file('image'));
         }
         $data->save();
-        return redirect()->route('admin_rooms',['id'=>$id,'hotel_id'=>$hotel_id]);
+        return redirect()->route('admin_rooms',['hotel_id'=>$hotel_id]);
     }
 
     /**

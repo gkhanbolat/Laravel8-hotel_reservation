@@ -11,15 +11,11 @@
             <div class="col-12">
                 <div class="card my-4">
                     <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-                        @foreach($datalist as $as)
-                            @foreach($room as $ws)
-                            @if($as->id == $ws->hotel_id)
+
                         <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                            <h6 class="text-white text-capitalize ps-3">{{$as->title}} Room List</h6>
+                            <h6 class="text-white text-capitalize ps-3"> Room List</h6>
                         </div>
-                            @endif
-                            @endforeach
-                        @endforeach
+
                     </div>
                     <div class="card-body px-0 pb-2">
                         <div class="table-responsive p-0">

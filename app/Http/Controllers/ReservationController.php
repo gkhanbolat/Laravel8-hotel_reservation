@@ -67,6 +67,7 @@ class ReservationController extends Controller
         $data->note=$request->input('note');
         $data->IP=$_SERVER['REMOTE_ADDR'];
         $data->save();
+        return redirect()->route('myrezervations');
     }
 
     /**

@@ -32,7 +32,7 @@
                                     <div class="card-body">
                                         <p>Hotel ID</p>
                                         <div class="input-group input-group-outline mb-3">
-                                            <input type="text" name="hotel_id" value="{{$data->hotel_id}}" class="form-control">
+                                            <input type="hidden" name="hotel_id" value="{{$data->hotel_id}}" class="form-control">
                                         </div>
                                         <p>Title</p>
                                         <div class="input-group input-group-outline mb-3">

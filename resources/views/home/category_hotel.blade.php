@@ -25,7 +25,7 @@
                     <div class="tm-tours-box-2-info">
                         <h3 class="margin-bottom-15">{{$rs->title}}</h3>
                     </div>
-                    <a href="#" class="tm-tours-box-2-link">Book Now</a>
+                    <a href="{{route('hotel',['id'=>$rs->id,'slug'=>$rs->slug])}}" class="tm-tours-box-2-link">Book Now</a>
                 </div>
             </div>
             @endforeach

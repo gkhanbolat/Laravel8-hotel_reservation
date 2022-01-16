@@ -49,7 +49,7 @@
                                         </div>
                                         <p>Slug</p>
                                         <div class="input-group input-group-outline mb-3">
-                                            <input type="text" name="keywords" value="{{$data->slug}}" class="form-control">
+                                            <input type="text" name="slug" value="{{$data->slug}}" class="form-control">
                                         </div>
                                         <p>Description</p>
                                         <div class="input-group input-group-outline mb-3">
@@ -96,8 +96,8 @@
                                         <div class="input-group input-group-outline mb-3">
                                             <label class="form-label"></label>
                                             <select class="form-control" name="status">
-                                                <option >True</option>
-                                                <option >False</option>
+                                                <option>True</option>
+                                                <option>False</option>
                                                 <option selected="selected">{{$data->status}}</option>
                                             </select>
                                         </div>
