@@ -1,6 +1,6 @@
 @php
     $data=\App\Models\Room::all();
-    $name=\App\Models\Hotel::all();
+    $name=\App\Models\Hotel::select();
 @endphp
 
 <section class="container tm-home-section-1" id="more">
@@ -19,13 +19,13 @@
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane fade in active tm-white-bg" id="hotel">
                         <div class="tm-search-box effect2">
-                            <form action="#" method="post" class="hotel-search-form">
+                            <form action="{{route('hotel',['id'=>$name->id,'slug'=>$name->slug])}}" method="post" class="hotel-search-form">
                                 <div class="tm-form-inner">
                                     <div class="form-group">
                                         <select class="form-control">
                                             <option value="">-- Select Hotel -- </option>
                                             @foreach($name as $nm)
-                                            <option value="{{$nm->hotel_id}}">{{$nm->title}}</option>
+                                            <option value="{{$nm->id}}">{{$nm->title}}</option>
                                             @endforeach
 
                                         </select>

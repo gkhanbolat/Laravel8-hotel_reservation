@@ -1,6 +1,7 @@
 @php
     $data=\App\Http\Controllers\HomeController::popular()
 @endphp
+<section class="container tm-home-section-1" id="more">
 <div class="section-margin-top">
 <div class="row">
     <div class="tm-section-header">

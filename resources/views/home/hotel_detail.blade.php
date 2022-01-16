@@ -218,7 +218,7 @@
 
 
 
-                                <div><a href="#"><i class="fa fa-user-o">{{$user->name}}</i> </a>
+                                <div><a href="#"><i class="fa fa-user-o">{{$rs->user->name}}</i> </a>
                                     <a href="#" align="right"><i class="fa fa-clock-o">{{$rs->created_at}}</i> </a></div>
 
 

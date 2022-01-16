@@ -16,9 +16,7 @@
 @section('content')
 
     @include('home._slider')
-    @include('home._order')
 
-    @include('home._offer')
     @include('home._details')
     @include('home._popular')
 

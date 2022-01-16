@@ -51,8 +51,8 @@ class HotelController extends Controller
         $data->detail=$request->input('detail');
         $data->star=$request->input('star');
         $data->address=$request->input('address');
-        $data->phone=(int)$request->input('phone');
-        $data->fax=(int)$request->input('fax');
+        $data->phone=$request->input('phone');
+        $data->fax=$request->input('fax');
         $data->email=$request->input('email');
         $data->city=$request->input('city');
         $data->country=$request->input('country');
